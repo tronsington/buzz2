@@ -199,6 +199,7 @@ android {
 dependencies {
     implementation("com.google.android.play:age-signals:0.0.4")
     implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("androidx.car.app:app:1.4.0")
 
     testImplementation(kotlin("test"))
 
