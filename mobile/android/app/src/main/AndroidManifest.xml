@@ -53,9 +53,20 @@
                 android:name="flutter_deeplinking_enabled"
                 android:value="false" />
         </activity>
-        <!-- buzz2 Android Auto spike: car app service. MESSAGING category (AA
-             launcher filters by AA-supported categories; IOT is Automotive-OS-only
-             and made the app invisible in Customize launcher). -->
+        <!-- buzz2 Android Auto spike: discovery declarations. The AA host scans
+             installed packages for the com.google.android.gms.car.application
+             meta-data and only treats matching apps as car apps. Play-distributed
+             apps get store-side discovery; sideloaded APKs must declare it here or
+             stay invisible in the Customize launcher regardless of category. -->
+        <meta-data
+            android:name="androidx.car.app.minCarApiLevel"
+            android:value="1" />
+        <meta-data
+            android:name="com.google.android.gms.car.application"
+            android:resource="@xml/automotive_app_desc" />
+        <!-- Car app service. MESSAGING category (AA launcher filters by
+             AA-supported categories; IOT is Automotive-OS-only and made the app
+             invisible in Customize launcher). -->
         <service
             android:name=".car.BuzzCarAppService"
             android:exported="true">

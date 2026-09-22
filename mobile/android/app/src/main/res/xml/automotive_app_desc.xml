@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  buzz2 Android Auto spike: declares the car-app-library (template host) feature.
+  Referenced from AndroidManifest.xml via the com.google.android.gms.car.application
+  meta-data — required for Android Auto to discover a sideloaded car app.
+-->
+<automotiveApp>
+    <uses name="template" />
+</automotiveApp>
