@@ -53,13 +53,15 @@
                 android:name="flutter_deeplinking_enabled"
                 android:value="false" />
         </activity>
-        <!-- buzz2 Android Auto spike (milestone zero): hello-world car app service. -->
+        <!-- buzz2 Android Auto spike: car app service. MESSAGING category (AA
+             launcher filters by AA-supported categories; IOT is Automotive-OS-only
+             and made the app invisible in Customize launcher). -->
         <service
             android:name=".car.BuzzCarAppService"
             android:exported="true">
             <intent-filter>
                 <action android:name="androidx.car.app.CarAppService" />
-                <category android:name="androidx.car.app.category.IOT" />
+                <category android:name="androidx.car.app.category.MESSAGING" />
             </intent-filter>
         </service>
         <!-- Don't delete the meta-data below.
