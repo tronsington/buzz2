@@ -59,9 +59,6 @@
              apps get store-side discovery; sideloaded APKs must declare it here or
              stay invisible in the Customize launcher regardless of category. -->
         <meta-data
-            android:name="androidx.car.app.minCarApiLevel"
-            android:value="1" />
-        <meta-data
             android:name="com.google.android.gms.car.application"
             android:resource="@xml/automotive_app_desc" />
         <!-- Car app service. MESSAGING category (AA launcher filters by
@@ -74,6 +71,14 @@
                 <action android:name="androidx.car.app.CarAppService" />
                 <category android:name="androidx.car.app.category.MESSAGING" />
             </intent-filter>
+            <!-- minCarApiLevel MUST be a child of <service>: the host and the
+                 library read it via PackageManager.getServiceInfo(...,
+                 GET_META_DATA).metaData (ServiceInfo), which is never merged
+                 with ApplicationInfo.metaData. Application-level placement
+                 made that lookup find nothing (found by Claude, 2026-09-23). -->
+            <meta-data
+                android:name="androidx.car.app.minCarApiLevel"
+                android:value="1" />
         </service>
         <!-- Don't delete the meta-data below.
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
