@@ -1,0 +1,17 @@
+plugins { id 'com.android.application' }
+android {
+    namespace 'com.example.aahellodiff'
+    compileSdk 36
+    defaultConfig {
+        applicationId 'com.example.aahellodiff'
+        minSdk 24
+        targetSdk 36
+        versionCode 1
+        versionName '1.7.0-diff'
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+}
+dependencies { implementation 'androidx.car.app:app:1.7.0' }
